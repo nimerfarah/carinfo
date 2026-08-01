@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Heebo", "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", "Heebo", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --font-display: "Outfit", "Heebo", ui-sans-serif, system-ui, sans-serif;
+  --background: #eef4f3;
+  --foreground: #0f1f1e;
+  --muted: #5f7371;
+  --muted-foreground: #3d524f;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-elevated: rgba(255, 255, 255, 0.9);
+  --surface-hover: rgba(13, 115, 119, 0.06);
+  --border: rgba(15, 31, 30, 0.1);
+  --accent: #0d7377;
+  --accent-hover: #095c5f;
+  --accent-2: #14919b;
+}
+
+.dark {
+  --background: #0a1413;
+  --foreground: #e8f2f1;
+  --muted: #8aa3a0;
+  --muted-foreground: #b4c9c6;
+  --surface: rgba(18, 36, 34, 0.72);
+  --surface-elevated: rgba(24, 46, 44, 0.9);
+  --surface-hover: rgba(20, 163, 168, 0.1);
+  --border: rgba(232, 242, 241, 0.1);
+  --accent: #14a3a8;
+  --accent-hover: #1bb8be;
+  --accent-2: #0d7377;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    font-family: var(--font-sans);
+    background: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100dvh;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.04),
+      0 8px 24px rgba(13, 115, 119, 0.06);
+  }
+
+  /* backdrop-filter + transforms can blank text on iOS Safari */
+  @media (hover: hover) and (pointer: fine) {
+    .glass-card {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+  }
+
+  .dark .glass-card {
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.2),
+      0 12px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  .fact-tile {
+    background: color-mix(in srgb, var(--surface-elevated) 92%, var(--accent) 8%);
+    border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+  }
+
+  .fact-tile--warn {
+    background: color-mix(in srgb, #fef2f2 88%, #ef4444 12%);
+    border-color: color-mix(in srgb, #ef4444 28%, transparent);
+  }
+
+  .fact-tile--ok {
+    background: color-mix(in srgb, var(--surface-elevated) 85%, var(--accent) 15%);
+    border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+  }
+
+  .dark .fact-tile--warn {
+    background: color-mix(in srgb, #450a0a 70%, transparent);
+    border-color: color-mix(in srgb, #f87171 35%, transparent);
+  }
+
+  .record-panel {
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    background: color-mix(in srgb, var(--surface-elevated) 96%, transparent);
+    padding: 1rem;
+  }
+
+  .record-panel + .record-panel {
+    margin-top: 0.85rem;
+  }
+}
+
+/* Solid surfaces on coarse pointers so result cards never hide glyphs */
+@media (hover: none), (pointer: coarse) {
+  :root {
+    --surface: #ffffff;
+    --surface-elevated: #f7faf9;
+  }
+
+  .dark {
+    --surface: #122422;
+    --surface-elevated: #18302c;
+  }
+}
+
+@media print {
+  @page {
+    margin: 12mm;
+  }
+
+  /* Chrome clips multi-page output when ancestors use transform/filter/overflow */
+  html,
+  body,
+  #root,
+  .app-shell {
+    background: white !important;
+    color: black !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+
+  body * {
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .glass-card {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    /* Do NOT use break-inside:avoid on large cards — Chrome clips them */
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .print-dataset {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  table {
+    page-break-inside: auto;
+  }
+
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
