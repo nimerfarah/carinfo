@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" role="img" aria-label="Tiger">
+  <defs>
+    <linearGradient id="furMain" x1="24" y1="12" x2="104" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB04A"/>
+      <stop offset="0.45" stop-color="#F77F1A"/>
+      <stop offset="1" stop-color="#C2410C"/>
+    </linearGradient>
+    <linearGradient id="furDeep" x1="40" y1="40" x2="90" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EA580C"/>
+      <stop offset="1" stop-color="#9A3412"/>
+    </linearGradient>
+    <radialGradient id="muzzleGrad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(64 86) rotate(90) scale(26 30)">
+      <stop stop-color="#FFF7ED"/>
+      <stop offset="1" stop-color="#FDBA74"/>
+    </radialGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Head base -->
+  <circle cx="64" cy="64" r="58" fill="url(#furMain)" filter="url(#soft)"/>
+
+  <!-- Ears -->
+  <path d="M28 42c-8-18 8-30 22-20l-6 18-16 2z" fill="url(#furDeep)" stroke="#1C1917" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M100 42c8-18-8-30-22-20l6 18 16 2z" fill="url(#furDeep)" stroke="#1C1917" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M34 40c-3-8 4-14 11-10l-4 12-7-2z" fill="#FECACA"/>
+  <path d="M94 40c3-8-4-14-11-10l4 12 7-2z" fill="#FECACA"/>
+
+  <!-- Brow / forehead plate -->
+  <path d="M36 48c8-16 48-16 56 0-4 8-16 14-28 14S40 56 36 48z" fill="#F97316" opacity=".35"/>
+
+  <!-- Sharp forehead stripes -->
+  <path d="M52 24c1.5 14 1 26-1 38" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+  <path d="M64 20c0 16 0 28 0 42" stroke="#171717" stroke-width="7" stroke-linecap="round"/>
+  <path d="M76 24c-1.5 14-1 26 1 38" stroke="#171717" stroke-width="6" stroke-linecap="round"/>
+  <path d="M44 30c2 10 2 18 0 26" stroke="#171717" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+  <path d="M84 30c-2 10-2 18 0 26" stroke="#171717" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+
+  <!-- Cheek stripes - crisp wedges -->
+  <path d="M22 60c14 1 24 8 28 16" stroke="#171717" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M106 60c-14 1-24 8-28 16" stroke="#171717" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M20 72c12 0 20 5 24 11" stroke="#171717" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M108 72c-12 0-20 5-24 11" stroke="#171717" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M24 84c10-1 16 2 20 7" stroke="#171717" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M104 84c-10-1-16 2-20 7" stroke="#171717" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Eye patches -->
+  <ellipse cx="45" cy="58" rx="12" ry="10" fill="#9A3412" opacity=".25"/>
+  <ellipse cx="83" cy="58" rx="12" ry="10" fill="#9A3412" opacity=".25"/>
+
+  <!-- Eyes -->
+  <ellipse cx="45" cy="58" rx="8.5" ry="9.5" fill="#052E16"/>
+  <ellipse cx="83" cy="58" rx="8.5" ry="9.5" fill="#052E16"/>
+  <ellipse cx="45" cy="58" rx="5.5" ry="7" fill="#14532D"/>
+  <ellipse cx="83" cy="58" rx="5.5" ry="7" fill="#14532D"/>
+  <circle cx="47.5" cy="55" r="2.4" fill="#ECFDF5"/>
+  <circle cx="85.5" cy="55" r="2.4" fill="#ECFDF5"/>
+  <path d="M36 50c4-4 12-5 18-2" stroke="#171717" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M92 50c-4-4-12-5-18-2" stroke="#171717" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Muzzle -->
+  <ellipse cx="64" cy="88" rx="30" ry="24" fill="url(#muzzleGrad)"/>
+  <path d="M64 78v20" stroke="#292524" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M64 98c-10 8-18 7-24 4" stroke="#292524" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M64 98c10 8 18 7 24 4" stroke="#292524" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- Nose -->
+  <path d="M64 72c-8 0-13 5-13 10 0 1.5.5 2.5 2 3h22c1.5-.5 2-1.5 2-3 0-5-5-10-13-10z" fill="#171717"/>
+  <ellipse cx="60" cy="78" rx="2.2" ry="1.3" fill="#44403C" opacity=".7"/>
+
+  <!-- Whiskers -->
+  <path d="M34 82h-12M32 88h-14M36 94h-12" stroke="#57534E" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M94 82h12M96 88h14M92 94h12" stroke="#57534E" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="40" cy="82" r="1.5" fill="#78716C"/>
+  <circle cx="38" cy="88" r="1.5" fill="#78716C"/>
+  <circle cx="41" cy="94" r="1.5" fill="#78716C"/>
+  <circle cx="88" cy="82" r="1.5" fill="#78716C"/>
+  <circle cx="90" cy="88" r="1.5" fill="#78716C"/>
+  <circle cx="87" cy="94" r="1.5" fill="#78716C"/>
+
+  <!-- Chin mark -->
+  <path d="M56 108c4 4 12 4 16 0" stroke="#9A3412" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+</svg>
